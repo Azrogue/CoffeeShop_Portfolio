@@ -3,6 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Redirection de la page de chargement
     if (bodyId === 'splash-page') {
+        const splashBody = document.getElementById('splash-page'); // Get the body element by its ID
+
+        // Start fade-out after 2 seconds
+        setTimeout(() => {
+            splashBody.classList.add('fade-out');
+        }, 2000); // Start fading out 1 second before redirection
+
+        // Redirect after 3 seconds (2s delay + 1s transition)
         setTimeout(() => {
             window.location.href = 'home.html';
         }, 3000);
