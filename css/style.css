@@ -239,7 +239,7 @@
     align-items: center;
     gap: 40px;
     padding: 20px;
-    max-width: 500px;
+    max-width: 800px; /* Changed from 500px to 800px */
 }
 .confirmation-logo {
     width: 250px;
@@ -249,6 +249,7 @@
     position: relative;
     height: 120px; /* Hauteur pour contenir les messages */
     width: 100%;
+    text-align: center; /* Added */
 }
 .message {
     position: absolute;
@@ -273,6 +274,7 @@
     visibility: hidden; /* Caché au début */
     opacity: 0;
     transition: opacity 1s ease-in-out, visibility 1s;
+    margin-top: 80px; /* Added */
 }
 .confirmation-button.visible {
     visibility: visible;
