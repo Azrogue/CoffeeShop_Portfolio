@@ -57,7 +57,7 @@ function renderMenu() {
             `;
         });
         sectionHtml += `</div>`;
-     
+    }
 
 // Affiche les détails d'un produit
 function renderProductDetails() {
