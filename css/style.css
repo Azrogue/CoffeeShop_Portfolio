@@ -1,0 +1,215 @@
+/* --- Variables et Styles Généraux --- */
+:root {
+    --bg-color-light: #F5EBDD;
+    --bg-color-dark: #4E342E;
+    --accent-color: #C9A88C;
+    --text-color-dark: #1A1C29;
+    --text-color-light: #FFFFFF;
+
+    /* J'utilise Manrope comme alternative à SF Pro, et Playfair Display pour un titre élégant */
+    --font-body: 'Manrope', sans-serif;
+    --font-title: 'Playfair Display', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color-light);
+    color: var(--text-color-dark);
+}
+
+/* --- Écran de Chargement (Splash Screen) --- */
+.splash-screen-body {
+    background: linear-gradient(180deg, #F5EBDD 0%, #CAA98D 93.75%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.splash-screen {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.splash-logo img {
+    width: 150px; /* Ajuste la taille si besoin */
+}
+
+.splash-title {
+    font-family: var(--font-title);
+    font-size: 36px;
+    font-weight: 400;
+    border-top: 1px solid var(--text-color-dark);
+    border-bottom: 1px solid var(--text-color-dark);
+    padding: 10px 0;
+}
+
+.splash-icons {
+    display: flex;
+    gap: 25px;
+}
+
+.splash-icons img {
+    width: 32px;
+}
+
+
+/* --- Page d'Accueil (Home) --- */
+.home-body {
+    position: relative;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden; /* Empêche le scroll horizontal causé par les formes */
+}
+
+/* Formes décoratives en arrière-plan */
+.home-body::before {
+    content: '';
+    position: absolute;
+    width: 246px;
+    height: 283px;
+    left: -80px;
+    top: 60vh;
+    background: var(--bg-color-dark);
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(3px);
+}
+
+.home-body::after {
+    content: '';
+    position: absolute;
+    width: 107px;
+    height: 471px;
+    right: -20px;
+    top: 40vh;
+    background: #D8BFAA;
+    border-radius: 30px;
+    opacity: 0.79;
+    z-index: -1;
+    filter: blur(2.65px);
+}
+
+.container {
+    width: 100%;
+    max-width: 390px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    height: 417px;
+    border: 8px solid var(--text-color-light);
+    box-shadow: 0px 4px 11.4px -2px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    overflow: hidden; /* Assure que l'image ne dépasse pas des coins arrondis */
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Couvre tout l'espace sans déformer l'image */
+}
+
+.card-title {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-title);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-color-light);
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tagline {
+    display: flex;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+.tagline img {
+    width: 26px;
+}
+
+.tagline-text, .stats {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.cta-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 358px;
+    height: 54px;
+    background: var(--accent-color);
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--text-color-light);
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 10px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.22);
+    transition: transform 0.2s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.02);
+}
+
+.cta-button img {
+    width: 24px;
+}
+
+.home-footer {
+    width: 100%;
+    max-width: 390px;
+    margin-top: auto; /* Pousse le footer en bas */
+    padding-top: 30px;
+    position: relative;
+    height: 100px; /* Espace pour le logo */
+}
+
+.address {
+    font-size: 10px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+}
+
+.footer-logo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.footer-logo img {
+    width: 90px; /* Ajuste la taille si besoin */
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
