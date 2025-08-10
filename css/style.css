@@ -239,6 +239,7 @@
     align-items: center;
     gap: 40px;
     padding: 20px;
+    max-width: 500px;
 }
 .confirmation-logo {
     width: 250px;

@@ -257,6 +257,11 @@ function runConfirmationSequence() {
              // Keep it active
              messageDisplayElement.classList.add('active');
              buttonElement.classList.add('visible');
+
+             // Add auto-redirection after 10 seconds
+             setTimeout(() => {
+                 window.location.href = 'index.html';
+             }, 10000); // 10 seconds
         }
     }
 
