@@ -4,28 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <!-- Note: Tu peux trouver une police similaire à SF Pro sur Google Fonts, comme "Manrope" ou "Inter" -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <title>Menu - Café Marais</title>
+    <title>Votre Panier - Café Marais</title>
 </head>
-<body id="menu-page">
-
+<body id="cart-page">
     <header class="page-header">
-        <a href="home.html"><img src="assets/icons/arrow-left.svg" alt="Retour"></a>
-        <h1>Menu</h1>
-        <a href="cart.html"><img src="assets/icons/shopping-basket.svg" alt="Panier"></a>
+        <a href="menu.html"><img src="assets/icons/arrow-left.svg" alt="Retour"></a>
+        <h1>Panier</h1>
+        <span>&nbsp;</span>
     </header>
 
-    <main id="menu-container" class="container">
-        <!-- Le contenu du menu sera généré ici par JavaScript -->
+    <main class="container">
+        <div id="cart-items-container">
+            <!-- Les articles du panier seront injectés ici -->
+        </div>
+        <div id="cart-summary-container">
+            <!-- Le résumé du panier (total, etc.) sera injecté ici -->
+        </div>
     </main>
     
-    <footer class="menu-footer">
-        <p>Certains produits peuvent contenir des allergènes : fruits à coque, lait, gluten...</p>
-    </footer>
-
     <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
