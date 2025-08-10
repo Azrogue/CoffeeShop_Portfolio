@@ -53,25 +53,27 @@ function calculateTotal() {
     cart.forEach(cartItem => {
         const product = products.find(p => p.id === cartItem.productId);
         if (product) {
-            let itemPrice = product.price || 0;
-            // Si le produit a des options (comme la taille)
-            if (product.options && product.options.size && cartItem.options.size) {
-                 const sizeOption = product.options.size.find(s => s.name === cartItem.options.size);
-                 if(sizeOption) itemPrice = sizeOption.price;
+            let itemPrice = 0; // Initialize to 0
+
+            // Determine base price: either from selected size or direct product price
+            if (cartItem.options && cartItem.options.size) {
+                // If a size option was selected for this cart item
+                // cartItem.options.size is an object like { name: "Petit", price: 3.50 }
+                itemPrice = cartItem.options.size.price;
+            } else if (product.price !== undefined) {
+                // If no size option, use the product's base price
+                itemPrice = product.price;
             }
-            // Ajouter le prix des suppléments
-            if (product.options && product.options.supplements && cartItem.options.supplements) {
-                cartItem.options.supplements.forEach(supName => {
-                    const sup = product.options.supplements.find(s => s.name === supName);
-                    if(sup) itemPrice += sup.price;
+
+            // Add supplement prices
+            if (cartItem.options && cartItem.options.supplements && cartItem.options.supplements.length > 0) {
+                cartItem.options.supplements.forEach(supObj => {
+                    // supObj is an object like { name: "Extra Shot", price: 1.00 }
+                    itemPrice += supObj.price;
                 });
             }
             total += itemPrice * cartItem.quantity;
         }
     });
-    
-    // Ajout de frais fixes (si nécessaire)
-    // const deliveryFee = 5.00;
-    // return total + deliveryFee;
     return total;
 }

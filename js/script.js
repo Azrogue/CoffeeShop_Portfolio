@@ -235,28 +235,27 @@ function runConfirmationSequence() {
         "Merci ! Votre commande est en cours de préparation !"
     ];
     
-    const messageElements = document.querySelectorAll('#confirmation-messages .message');
+    // Select only the first message element to display all messages sequentially
+    const messageDisplayElement = document.querySelector('#confirmation-messages .message');
     const buttonElement = document.querySelector('.confirmation-button');
     let currentMessageIndex = 0;
 
     function showNextMessage() {
         if (currentMessageIndex < messages.length) {
-            // Cacher l'ancien message
-            if (currentMessageIndex > 0) {
-                messageElements[currentMessageIndex - 1].classList.remove('active');
-            }
+            // Set the text content of the single display element
+            messageDisplayElement.textContent = messages[currentMessageIndex];
             
-            // Afficher le nouveau
-            messageElements[currentMessageIndex].textContent = messages[currentMessageIndex];
-            messageElements[currentMessageIndex].classList.add('active');
+            // Ensure it's visible
+            messageDisplayElement.classList.add('active');
             
             currentMessageIndex++;
-            setTimeout(showNextMessage, 3000); // Prochain message dans 3 secondes
+            setTimeout(showNextMessage, 3000); // Next message in 3 seconds
         } else {
              // Fin de la séquence, on affiche le bouton
-             messageElements[currentMessageIndex - 1].classList.remove('active'); // cacher le dernier message textuel
-             messageElements[2].textContent = "Merci ! Votre commande est en cours de préparation ! \n On s’occupe de tout, avec amour et caféine.";
-             messageElements[2].classList.add('active'); // réafficher le message final
+             // Update with the final, longer message
+             messageDisplayElement.textContent = "Merci ! Votre commande est en cours de préparation ! \n On s’occupe de tout, avec amour et caféine.";
+             // Keep it active
+             messageDisplayElement.classList.add('active');
              buttonElement.classList.add('visible');
         }
     }
