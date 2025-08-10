@@ -278,4 +278,92 @@
     opacity: 1;
 }
 
-https://azrogue.github.io/CoffeeShop_Portfolio/home.html
+/* --- Styles pour la page d'accueil (home.html) --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope', Arial, sans-serif;
+    background: var(--bg-color-light);
+    color: var(--text-color-dark);
+}
+
+.home-body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 600px;
+    margin: 40px auto 0 auto;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+
+.card {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.card-img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.card-title {
+    font-family: var(--font-title);
+    font-size: 2.2rem;
+    margin: 16px 0 0 0;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-color);
+    color: var(--text-color-light);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 24px;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s;
+}
+.cta-button:hover {
+    background: #a05d4c;
+}
+
+.tagline {
+    display: flex;
+    gap: 16px;
+    margin: 24px 0 8px 0;
+    justify-content: center;
+}
+.tagline-text {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+.stats {
+    text-align: center;
+    color: #b4786a;
+    font-size: 1rem;
+    margin-bottom: 16px;
+}
+
+.home-footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 24px 0 0 0;
+    color: #877063;
+    font-size: 0.95rem;
+}
+.footer-logo img {
+    width: 90px;
+    margin-top: 12px;
+    opacity: 0.85;
+}
