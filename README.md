@@ -1,6 +1,6 @@
 # Coffee Shop - Portfolio
 
-![Aperçu du site web du Coffee Shop](URL_DE_VOTRE_IMAGE_APERÇU)
+![Aperçu du site web du Coffee Shop](https://i.ibb.co/TBkmd43n/cofeeshop-screenshot-drawio.png)
 
 Bienvenue sur le dépôt du projet de site web pour notre coffee shop fictif. Ce projet a pour but de créer une vitrine en ligne moderne et attrayante, en transformant des maquettes Figma en un site web fonctionnel, esthétique et entièrement responsive.
 
@@ -42,7 +42,7 @@ Ce projet est un site statique et ne nécessite pas d'installation complexe.
 ## 🌐 Hébergement
 
 Le site est hébergé sur GitHub Pages et est accessible via le lien suivant :
-[https://VOTRE_NOM_UTILISATEUR.github.io/NOM_DU_DEPOT/](https://VOTRE_NOM_UTILISATEUR.github.io/NOM_DU_DEPOT/)
+[https://azrogue.github.io/CoffeeShop_Portfolio/](https://azrogue.github.io/CoffeeShop_Portfolio/)
 
 Pour activer GitHub Pages sur votre propre dépôt :
 1.  Allez dans l'onglet "Settings" (Paramètres) de votre dépôt.
