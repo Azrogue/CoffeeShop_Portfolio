@@ -258,13 +258,47 @@
 
 
 /* --- Page de Confirmation --- */
-#confirmation-page {
-    background: linear-gradient(180deg, #4E342E 0%, #A87063 61.54%, #B4786A 100%);
-    color: var(--bg-color-light);
+/* --- Page de Chargement (index.html) --- */
+.splash-screen-body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--text-color-dark) 0%, var(--accent-color) 100%);
+    color: var(--text-color-light);
+    text-align: center;
+}
+
+.splash-logo img {
+    width: 180px;
+    margin-bottom: 20px;
+}
+
+.splash-title {
+    font-family: var(--font-title);
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.splash-icons {
+    display: flex;
+    gap: 25px;
+}
+
+.splash-icons img {
+    width: 40px;
+}
+
+.splash-screen-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--text-color-dark) 0%, var(--accent-color) 100%);
+    color: var(--text-color-light);
     text-align: center;
 }
 .confirmation-container {
