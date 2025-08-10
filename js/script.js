@@ -58,6 +58,8 @@ function renderMenu() {
         });
         sectionHtml += `</div>`;
     }
+    menuContainer.innerHTML += sectionHtml;
+}
 
 // Affiche les détails d'un produit
 function renderProductDetails() {
