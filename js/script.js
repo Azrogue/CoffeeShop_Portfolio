@@ -267,7 +267,7 @@ function runConfirmationSequence() {
         } else {
              // Fin de la séquence, on affiche le bouton
              // Update with the final, longer message
-             messageDisplayElement.textContent = "Merci ! Votre commande est en cours de préparation ! <br> On s’occupe de tout, avec amour et caféine.";
+             messageDisplayElement.textContent = "Merci ! Votre commande est en cours de préparation ! On s’occupe de tout, avec amour et caféine.";
              // Keep it active
              messageDisplayElement.classList.add('active');
              buttonElement.classList.add('visible');
