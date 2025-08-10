@@ -4,7 +4,7 @@ const products = [
         name: "Iced Latte",
         category: "Latte",
         description: "Un café espresso classique avec du lait à température ambiante. Onctueux, crémeux et frais !",
-        image: "assets/images/iced-latte.jpg",
+        image: "https://via.placeholder.com/300x300",
         options: {
             size: [
                 { name: "Petit", price: 3.50 },
@@ -23,7 +23,7 @@ const products = [
         name: "Muffin",
         category: "Viennoiseries",
         description: "Un muffin tout choco, moelleux à l'intérieur, crousti sur le dessus. Juste ce qu'il faut pour se faire plaisir.",
-        image: "assets/images/muffin.jpg",
+        image: "https://via.placeholder.com/300x300",
         price: 3.50, // Prix unique pour cet article
         options: null // Pas d'options pour le muffin
     },

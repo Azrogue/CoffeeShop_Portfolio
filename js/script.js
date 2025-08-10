@@ -74,7 +74,7 @@ function renderProductDetails() {
         if (product.options.size) {
             optionsHtml += `<div class="product-options-group"><h4>Taille</h4><div class="options-container">`;
             product.options.size.forEach(s => {
-                optionsHtml += `<button class="option-button size-option" data-price="${s.price}">${s.name}</button>`;
+                optionsHtml += `<button class="option-button size-option" data-price="${s.price}" data-name="${s.name}">${s.name}</button>`;
             });
             optionsHtml += `</div></div>`;
         }
@@ -82,7 +82,7 @@ function renderProductDetails() {
             optionsHtml += `<div class="product-options-group"><h4>En supplément</h4><div class="options-container vertical">`;
             product.options.supplements.forEach(sup => {
                 optionsHtml += `<div class="supplement-item">
-                    <input type="checkbox" id="${sup.name}" class="supplement-checkbox" data-price="${sup.price}">
+                    <input type="checkbox" id="${sup.name}" class="supplement-checkbox" data-price="${sup.price}" data-name="${sup.name}">
                     <label for="${sup.name}">${sup.name}</label>
                     <span>+€${sup.price.toFixed(2)}</span>
                 </div>`;
@@ -98,9 +98,59 @@ function renderProductDetails() {
         ${optionsHtml}
         <button id="add-to-cart-btn" class="add-to-cart-button">Ajouter au panier</button>
     `;
-    
-    // Logique pour la sélection d'options et le calcul du prix
-    // ... (à ajouter pour plus d'interactivité)
+
+    let selectedOptions = { size: null, supplements: [] };
+    let basePrice = product.price || 0;
+    const addToCartBtn = document.getElementById('add-to-cart-btn');
+
+    function updatePrice() {
+        let currentPrice = basePrice;
+        if (selectedOptions.size) {
+            currentPrice = parseFloat(selectedOptions.size.price);
+        }
+
+        selectedOptions.supplements.forEach(sup => {
+            currentPrice += parseFloat(sup.price);
+        });
+
+        addToCartBtn.textContent = `Ajouter au panier - €${currentPrice.toFixed(2)}`;
+    }
+
+    if(product.options && product.options.size) {
+        const sizeButtons = container.querySelectorAll('.size-option');
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                sizeButtons.forEach(btn => btn.classList.remove('selected'));
+                button.classList.add('selected');
+                selectedOptions.size = { name: button.dataset.name, price: button.dataset.price };
+                updatePrice();
+            });
+        });
+        // Select the first size by default
+        if(sizeButtons.length > 0) {
+            sizeButtons[0].click();
+        }
+    } else {
+        updatePrice();
+    }
+
+    const supplementCheckboxes = container.querySelectorAll('.supplement-checkbox');
+    supplementCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('click', () => {
+            if (checkbox.checked) {
+                selectedOptions.supplements.push({ name: checkbox.dataset.name, price: checkbox.dataset.price });
+            } else {
+                selectedOptions.supplements = selectedOptions.supplements.filter(sup => sup.name !== checkbox.dataset.name);
+            }
+            updatePrice();
+        });
+    });
+
+    addToCartBtn.addEventListener('click', () => {
+        addToCart(product.id, 1, selectedOptions);
+        // Optional: show a confirmation message
+        alert('Produit ajouté au panier!');
+    });
 }
 
 // Affiche la page du panier
@@ -123,12 +173,12 @@ function renderCartPage() {
                 <img src="${product.image}" alt="${product.name}" class="cart-item-img">
                 <div class="cart-item-info">
                     <h4>${product.name}</h4>
-                    <p>${item.options.size || ''}</p>
+                    <p>${item.options.size ? item.options.size.name : ''}</p>
                 </div>
                 <div class="cart-item-quantity">
-                    <button>-</button>
+                    <button class="quantity-btn" data-cart-item-id="${item.cartItemId}" data-change="-1">-</button>
                     <span>${item.quantity}</span>
-                    <button>+</button>
+                    <button class="quantity-btn" data-cart-item-id="${item.cartItemId}" data-change="1">+</button>
                 </div>
             </div>`;
         }
@@ -154,6 +204,26 @@ function renderCartPage() {
         // e.preventDefault(); // enlever le commentaire si on ajoute une logique de paiement
         clearCart(); // On vide le panier après la commande
         // window.location.href = 'confirmation.html';
+    });
+
+    const quantityButtons = document.querySelectorAll('.quantity-btn');
+    quantityButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const cartItemId = button.dataset.cartItemId;
+            const change = parseInt(button.dataset.change);
+            const cart = getCart();
+            const item = cart.find(i => i.cartItemId === cartItemId);
+            if(item) {
+                const newQuantity = item.quantity + change;
+                if (newQuantity > 0) {
+                    updateCartQuantity(cartItemId, newQuantity);
+                } else {
+                    // Remove item if quantity is 0 or less
+                    updateCartQuantity(cartItemId, 0);
+                }
+                renderCartPage(); // Re-render the cart
+            }
+        });
     });
 }
 
