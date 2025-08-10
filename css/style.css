@@ -19,6 +19,7 @@
     position: sticky;
     top: 0;
     z-index: 10;
+    box-sizing: border-box;
 }
 .page-header h1 {
     font-size: 18px;
