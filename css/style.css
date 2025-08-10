@@ -262,42 +262,15 @@
 }
 
 
-#confirmation-page {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-#confirmation-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: var(--bg-color-light);
-    color: var(--text-color-dark);
-}
-.confirmation-container {
 /* --- Page de Confirmation --- */
-#confirmation-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    min-height: 100vh; /* Full viewport height */
-    background: linear-gradient(180deg, var(--text-color-dark) 0%, var(--accent-color) 100%); /* Gradient background */
-    color: var(--text-color-light); /* Text color */
-    text-align: center; /* Center text within the body */
-}
-.confirmation-container {
+/* --- Page de Chargement (index.html) --- */
 #splash-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(180deg, #4E342E 0%, #A87063 61.54%, #B4786A 100%);
+    background: linear-gradient(180deg, var(--text-color-dark) 0%, var(--accent-color) 100%);
     color: var(--text-color-light);
     text-align: center;
     transition: opacity 1s ease-out;
