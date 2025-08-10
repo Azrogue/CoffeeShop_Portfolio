@@ -57,8 +57,8 @@ function renderMenu() {
             `;
         });
         sectionHtml += `</div>`;
+        menuContainer.innerHTML += sectionHtml;
     }
-    menuContainer.innerHTML += sectionHtml;
 }
 
 // Affiche les détails d'un produit
@@ -174,7 +174,7 @@ function renderCartPage() {
         if(product) {
             itemsHtml += `
             <div class="cart-item">
-                <img src="${product.image}" alt="${product.name}" class="cart-item-img">
+                ${product.image ? `<img src="${product.image}" alt="${product.name}" class="cart-item-img">` : ''}
                 <div class="cart-item-info">
                     <h4>${product.name}</h4>
                     <p>${item.options.size ? item.options.size.name : ''}</p>
@@ -257,7 +257,7 @@ function runConfirmationSequence() {
         } else {
              // Fin de la séquence, on affiche le bouton
              // Update with the final, longer message
-             messageDisplayElement.textContent = "Merci ! Votre commande est en cours de préparation ! \n On s’occupe de tout, avec amour et caféine.";
+             messageDisplayElement.textContent = "Merci ! Votre commande est en cours de préparation ! <br> On s’occupe de tout, avec amour et caféine.";
              // Keep it active
              messageDisplayElement.classList.add('active');
              buttonElement.classList.add('visible');

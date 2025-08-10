@@ -13,7 +13,18 @@ function saveCart(cart) {
 function addToCart(productId, quantity, options) {
     const cart = getCart();
     // Créer un ID unique pour l'article du panier basé sur ses options
-    const cartItemId = productId + '-' + Object.values(options).join('-');
+    let optionsIdentifier = '';
+    if (options) {
+        if (options.size) {
+            optionsIdentifier += `size-${options.size.name}`;
+        }
+        if (options.supplements && options.supplements.length > 0) {
+            const supplementNames = options.supplements.map(sup => sup.name).sort().join('_');
+            if (optionsIdentifier) optionsIdentifier += '-';
+            optionsIdentifier += `supplements-${supplementNames}`;
+        }
+    }
+    const cartItemId = productId + (optionsIdentifier ? '-' + optionsIdentifier : '');
 
     const existingItem = cart.find(item => item.cartItemId === cartItemId);
 
