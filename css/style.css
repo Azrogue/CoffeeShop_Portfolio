@@ -439,3 +439,10 @@ body, html {
     margin-top: 12px;
     opacity: 0.85;
 }
+
+.menu-footer {
+    text-align: center;
+    padding: 20px;
+    color: #877063;
+    font-size: 0.9rem;
+}
