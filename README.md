@@ -33,7 +33,7 @@ Ce projet est un site statique et ne nécessite pas d'installation complexe.
 
 1.  **Cloner le dépôt :**
     ```bash
-    git clone https://github.com/VOTRE_NOM_UTILISATEUR/NOM_DU_DEPOT.git
+    git clone https://github.com/Azrogue/CoffeeShop_Portfolio.git
     ```
 
 2.  **Ouvrir le projet :**
