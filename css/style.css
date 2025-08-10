@@ -264,7 +264,7 @@
 
 /* --- Page de Confirmation --- */
 /* --- Page de Chargement (index.html) --- */
-.splash-screen-body {
+#splash-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -274,9 +274,14 @@
     color: var(--text-color-light);
     text-align: center;
     transition: opacity 1s ease-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Ensure it covers the full viewport */
 }
 
-.splash-screen-body.fade-out {
+#splash-content.fade-out {
     opacity: 0;
 }
 
@@ -358,10 +363,18 @@ body, html {
     color: var(--text-color-dark);
 }
 
-.home-body {
+#home-content {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in;
+}
+
+#home-content.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 .container {

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="/CoffeeShop_Portfolio/">
-    <title>Café Marais - Chargement</title>
+    <title>Café Marais</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css">
     <!-- Note: Tu peux trouver une police similaire à SF Pro sur Google Fonts, comme "Manrope" ou "Inter" -->
@@ -12,19 +12,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body id="splash-page" class="splash-screen-body">
+<body class="initial-load-body">
+    <div id="splash-content">
+        <main class="splash-screen">
+            <div class="splash-logo">
+                <img src="assets/images/logo-coeur.png" alt="Logo Café Marais">
+            </div>
+            <h1 class="splash-title">Café Marais</h1>
+            <div class="splash-icons">
+                <img src="assets/icons/coffee-bean.svg" alt="Grain de café">
+                <img src="assets/icons/cookie.svg" alt="Cookie">
+                <img src="assets/icons/heart.svg" alt="Coeur">
+            </div>
+        </main>
+    </div>
 
-    <main class="splash-screen">
-        <div class="splash-logo">
-            <img src="assets/images/logo-coeur.png" alt="Logo Café Marais">
-        </div>
-        <h1 class="splash-title">Café Marais</h1>
-        <div class="splash-icons">
-            <img src="assets/icons/coffee-bean.svg" alt="Grain de café">
-            <img src="assets/icons/cookie.svg" alt="Cookie">
-            <img src="assets/icons/heart.svg" alt="Coeur">
-        </div>
-    </main>
+    <div id="home-content" class="home-body">
+        <main class="container">
+            <div class="card">
+                <img src="assets/images/photo-terrasse.jpg" alt="Terrasse du Café Marais" class="card-img">
+                <h1 class="card-title">Café Marais</h1>
+            </div>
+
+            <div class="tagline">
+                <img src="assets/icons/coffee-bean.svg" alt="Icone grain de café">
+                <img src="assets/icons/cookie.svg" alt="Icone cookie">
+                <img src="assets/icons/heart.svg" alt="Icone coeur">
+            </div>
+            <p class="tagline-text">Un café, un cookie, la paix</p>
+
+            <p class="stats">⭐ 4,9 / 250 commandes cette semaine</p>
+
+            <a href="menu.html" class="cta-button">
+                <span>Je découvre le menu</span>
+                <img src="assets/icons/book-open.svg" alt="Icone menu">
+            </a>
+        </main>
+
+        <footer class="home-footer">
+            <p class="address">Place Edmond Michelet, 75004 Paris</p>
+            <div class="footer-logo">
+                <img src="assets/images/logo-coeur.png" alt="Logo Café Marais">
+            </div>
+        </footer>
+    </div>
 
     <script src="js/script.js"></script>
 </body>

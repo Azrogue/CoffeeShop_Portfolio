@@ -1,19 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     const bodyId = document.body.id;
 
-    // Redirection de la page de chargement
-    if (bodyId === 'splash-page') {
-        const splashBody = document.getElementById('splash-page'); // Get the body element by its ID
+    const splashContent = document.getElementById('splash-content');
+    const homeContent = document.getElementById('home-content');
 
-        // Start fade-out after 2 seconds
+    // Only run this logic if splashContent exists (i.e., we are on the initial load page)
+    if (splashContent && homeContent) {
+        // Initial delay before starting fade-out
         setTimeout(() => {
-            splashBody.classList.add('fade-out');
-        }, 2000); // Start fading out 1 second before redirection
+            splashContent.classList.add('fade-out'); // Start fading out splash screen
+        }, 2000); // Start fade-out after 2 seconds
 
-        // Redirect after 3 seconds (2s delay + 1s transition)
+        // After splash screen fades out, hide it and show home content
         setTimeout(() => {
-            window.location.href = 'home.html';
-        }, 3000);
+            splashContent.style.display = 'none'; // Hide splash content completely
+            homeContent.classList.add('show'); // Show and fade in home content
+        }, 3000); // 2 seconds delay + 1 second fade-out duration
     }
     
     // Logique pour chaque page
