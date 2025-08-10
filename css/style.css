@@ -1,4 +1,4 @@
-/* --- Styles Communs (Header, Boutons) --- */
+body { border: 5px solid red !important; }
 .page-header {
     display: flex;
     justify-content: space-between;
