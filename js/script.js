@@ -25,6 +25,9 @@ function renderMenu() {
     const menuContainer = document.getElementById('menu-container');
     if (!menuContainer) return;
 
+    // Vide le container avant de remplir
+    menuContainer.innerHTML = "";
+
     // Group products by category first
     const productsByCategory = {};
     menuSections.forEach(category => {
@@ -42,9 +45,10 @@ function renderMenu() {
         productsByCategory[category].forEach(product => {
             sectionHtml += `
                 <a href="product.html?id=${product.id}" class="menu-item">
+                    ${product.image ? `<img src="${product.image}" alt="${product.name}" class="menu-item-img">` : ""}
                     <div class="menu-item-details">
                         <h3>${product.name}</h3>
-                        <p>${product.description.substring(0, 30)}...</p>
+                        <p>${product.description}</p>
                     </div>
                     <div class="menu-item-price">
                         ${product.price ? `€${product.price.toFixed(2)}` : 'dès €' + product.options.size[0].price.toFixed(2)}
@@ -53,9 +57,7 @@ function renderMenu() {
             `;
         });
         sectionHtml += `</div>`;
-        menuContainer.innerHTML += sectionHtml;
-    }
-}
+     
 
 // Affiche les détails d'un produit
 function renderProductDetails() {

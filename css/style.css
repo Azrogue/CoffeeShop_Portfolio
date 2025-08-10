@@ -33,49 +33,83 @@
     padding: 24px;
 }
 
-/* --- Page du Menu --- */
+/* --- Menu : style inspiré de la deuxième image, avec images à gauche --- */
 #menu-page .container {
-    padding-top: 20px;
+    max-width: 700px;
+    margin: 40px auto 0 auto;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    padding: 32px 32px 24px 32px;
 }
-.menu-section {
-    margin-bottom: 30px;
-}
+
 .menu-section-title {
+    text-align: center;
     font-family: var(--font-title);
-    font-size: 28px;
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin: 32px 0 18px 0;
     border-bottom: 1px solid var(--accent-color);
     padding-bottom: 5px;
+    letter-spacing: 0.5px;
 }
+
 .menu-item {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 20px;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid #f2e7de;
     text-decoration: none;
     color: inherit;
 }
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item-img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    flex-shrink: 0;
+}
+
+.menu-item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .menu-item-details h3 {
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    text-align: left;
+    font-family: 'Manrope', Arial, sans-serif;
 }
+
 .menu-item-details p {
-    font-size: 14px;
+    font-size: 0.98rem;
     color: #877063;
+    margin: 0;
+    text-align: left;
+    line-height: 1.4;
 }
+
 .menu-item-price {
-    font-size: 16px;
+    font-size: 1.05rem;
     font-weight: 500;
     white-space: nowrap;
-    margin-left: 10px;
-}
-.menu-footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 12px;
-    color: #877063;
-    font-style: italic;
+    margin-left: 18px;
+    align-self: flex-start;
+    color: var(--accent-color);
+    min-width: 60px;
+    text-align: right;
 }
 
 
