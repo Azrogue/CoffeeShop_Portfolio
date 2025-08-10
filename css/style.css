@@ -1,4 +1,12 @@
-body { border: 5px solid red !important; }
+:root {
+    --text-color-light: #F5F5DC; /* Beige */
+    --text-color-dark: #4E342E; /* Dark Brown */
+    --font-title: 'Playfair Display', serif;
+    --accent-color: #B4786A; /* Warm Brown */
+    --bg-color-light: #F5F5DC; /* Beige */
+}
+
+/* --- Styles Communs (Header, Boutons) --- */
 .page-header {
     display: flex;
     justify-content: space-between;
