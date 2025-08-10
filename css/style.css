@@ -460,3 +460,111 @@ body, html {
     color: #877063;
     font-size: 0.9rem;
 }
+
+
+/* --- Page de Confirmation (confirmation.html) --- */
+
+/* Applique le style de fond et centre le contenu sur toute la page */
+#confirmation-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #4E342E 0%, #A87063 100%); /* Fond sombre dégradé */
+    color: var(--text-color-light); /* Texte clair */
+    text-align: center;
+    overflow: hidden; /* Empêche le défilement */
+}
+
+/* Le conteneur principal qui organise les éléments */
+.confirmation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Style pour le logo */
+.confirmation-logo {
+    width: 150px; /* Taille du logo */
+    opacity: 0.9;
+    /* Animation subtile pour rendre le logo plus "vivant" */
+    animation: slow-pulse 4s infinite ease-in-out;
+}
+
+/* Conteneur pour les messages animés */
+#confirmation-messages {
+    position: relative;
+    height: 150px; /* Espace réservé pour éviter que la page ne saute */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style de base pour chaque message (caché par défaut) */
+.message {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    opacity: 0; /* Invisible au départ */
+    transition: opacity 1.5s ease-in-out; /* Transition douce pour l'apparition */
+    font-family: var(--font-title); /* Police élégante pour les titres */
+    font-size: 2rem; /* Taille de la police */
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+/* Classe ajoutée par JavaScript pour afficher un message */
+.message.active {
+    opacity: 1; /* Rend le message visible */
+}
+
+/* Bouton pour retourner au menu */
+.confirmation-button {
+    padding: 16px 40px;
+    background: var(--bg-color-light); /* Fond clair */
+    color: var(--text-color-dark); /* Texte sombre */
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    margin-top: 20px;
+    
+    /* Caché par défaut, apparaîtra à la fin de l'animation */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px); /* Effet de montée subtil */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out, visibility 1s;
+}
+
+/* Classe ajoutée par JavaScript pour afficher le bouton */
+.confirmation-button.visible {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.confirmation-button:hover {
+    filter: brightness(0.95);
+}
+
+/* Définition de l'animation pour le logo */
+@keyframes slow-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+}
